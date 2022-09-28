@@ -1,11 +1,11 @@
 let fetchRepos = async(username) => {
     let response = await fetch(`https://api.github.com/users/${username}/repos`);
 
+    const reposData = document.querySelector('.reposData');
     // console.log(response.ok);
     if(response.ok) {
         let res = await response.json();
         // console.log(res);
-        const reposData = document.querySelector('.reposData');
         reposData.innerHTML = '';
         reposData.style.cssText = 'border: 4px solid #ffa836;';
         for(let item of res) {
@@ -23,5 +23,8 @@ let fetchRepos = async(username) => {
                 location.href = item['html_url'];
             });
         }
+    } else {
+        reposData.style.cssText = 'border: 4px solid transparent;';
+        reposData.innerHTML = '<h2 class="notFound">Username is not correct</h2>';
     }
 }

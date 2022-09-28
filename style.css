@@ -139,6 +139,11 @@ body {
     outline: 2px solid #ffffff;
 }
 
+.notFound {
+    width: 100%;
+    text-align: center;
+}
+
 @media screen and (max-width: 400px) {
     .repo {
         flex-direction: column;

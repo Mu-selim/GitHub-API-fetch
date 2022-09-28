@@ -1,11 +1,12 @@
 let fetchUser = async (username)=> {
     let response = await fetch(`https://api.github.com/users/${username}`);
 
+    const avatarNameBox = document.querySelector('.avatarNameBox');
+    const details = document.querySelector('.details');
+
     if(response.ok) {
         let res = await response.json();
 
-        const avatarNameBox = document.querySelector('.avatarNameBox');
-        const details = document.querySelector('.details');
         avatarNameBox.innerHTML = '';
         details.innerHTML = '';
         userData.style.cssText = 'border: 4px solid #ffa836;'
@@ -25,5 +26,10 @@ let fetchUser = async (username)=> {
         document.querySelector('.view').addEventListener('click', ()=> {
           location.href = res['html_url'];  
         });
+    }
+    else {
+        avatarNameBox.innerHTML = '';
+        details.innerHTML = '';
+        userData.style.cssText = 'border: 4px solid transparent;';
     }
 }
