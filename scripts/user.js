@@ -32,4 +32,8 @@ let fetchUser = async (username)=> {
         details.innerHTML = '';
         userData.style.cssText = 'border: 4px solid transparent;';
     }
+
+    if(loadingButtonContent.classList.contains('loading')) {
+        loadingButtonContent.classList.remove('loading');
+    }
 }

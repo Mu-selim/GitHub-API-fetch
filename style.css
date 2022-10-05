@@ -15,6 +15,10 @@ body {
     padding-top: 20px;
 }
 
+.container h1 {
+    text-align: center;
+}
+
 .searchBox {
     display: flex;
     flex-wrap: wrap;
@@ -27,7 +31,8 @@ body {
 
 .gitUsername,
 .fetchAPI {
-    padding: 8px 16px;
+    height: 40px;
+    padding: 8px 24px;
     border: none;
     border-radius: 6px;
     outline: 2px solid #ffa836;
@@ -35,15 +40,44 @@ body {
 
 
 .fetchAPI {
+    width: 100px;
     background: #ffa836;
     font-weight: 600;
     transition: 0.3s all linear;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fetchAPI:hover {
     outline: 2px solid #ffffff;
     background-color: #ffb657;
+}
+
+.fetchAPI div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.loading {
+    width: 25px;
+    height: 25px;
+    border: 5px solid #f0f0f0;
+    border-radius: 50%;
+    border-right-color: #000000;
+    animation: loading-animation 1s linear infinite;
+}
+
+.fetchAPI div h3 {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.loading h3 {
+    display: none;
 }
 
 .userData {
@@ -148,5 +182,14 @@ body {
     .repo {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@keyframes loading-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
